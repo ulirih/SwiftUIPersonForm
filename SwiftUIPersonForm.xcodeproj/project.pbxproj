@@ -11,6 +11,12 @@
 		553F6C7D2AFC038400FDDAB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C7C2AFC038400FDDAB6 /* ContentView.swift */; };
 		553F6C7F2AFC038600FDDAB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */; };
 		553F6C822AFC038600FDDAB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C812AFC038600FDDAB6 /* Preview Assets.xcassets */; };
+		553F6C8A2AFC06B700FDDAB6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C892AFC06B700FDDAB6 /* Colors.swift */; };
+		553F6C8D2AFC0E4D00FDDAB6 /* SFProRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C8C2AFC0E4D00FDDAB6 /* SFProRegular.otf */; };
+		553F6C902AFC113700FDDAB6 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C8F2AFC113700FDDAB6 /* Fonts.swift */; };
+		553F6C922AFC140200FDDAB6 /* SFProMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C912AFC140200FDDAB6 /* SFProMedium.otf */; };
+		553F6C952AFC20CE00FDDAB6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C942AFC20CE00FDDAB6 /* Line.swift */; };
+		553F6C972AFC2A0A00FDDAB6 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C962AFC2A0A00FDDAB6 /* TextInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,13 @@
 		553F6C7C2AFC038400FDDAB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553F6C812AFC038600FDDAB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		553F6C892AFC06B700FDDAB6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		553F6C8C2AFC0E4D00FDDAB6 /* SFProRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProRegular.otf; sourceTree = "<group>"; };
+		553F6C8E2AFC0FDC00FDDAB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		553F6C8F2AFC113700FDDAB6 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		553F6C912AFC140200FDDAB6 /* SFProMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProMedium.otf; sourceTree = "<group>"; };
+		553F6C942AFC20CE00FDDAB6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		553F6C962AFC2A0A00FDDAB6 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +64,10 @@
 		553F6C792AFC038400FDDAB6 /* SwiftUIPersonForm */ = {
 			isa = PBXGroup;
 			children = (
+				553F6C8E2AFC0FDC00FDDAB6 /* Info.plist */,
+				553F6C932AFC20A500FDDAB6 /* Views */,
+				553F6C8B2AFC0E3800FDDAB6 /* Font */,
+				553F6C882AFC06A100FDDAB6 /* Resources */,
 				553F6C7A2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift */,
 				553F6C7C2AFC038400FDDAB6 /* ContentView.swift */,
 				553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */,
@@ -65,6 +82,33 @@
 				553F6C812AFC038600FDDAB6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		553F6C882AFC06A100FDDAB6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				553F6C892AFC06B700FDDAB6 /* Colors.swift */,
+				553F6C8F2AFC113700FDDAB6 /* Fonts.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		553F6C8B2AFC0E3800FDDAB6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				553F6C912AFC140200FDDAB6 /* SFProMedium.otf */,
+				553F6C8C2AFC0E4D00FDDAB6 /* SFProRegular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		553F6C932AFC20A500FDDAB6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				553F6C942AFC20CE00FDDAB6 /* Line.swift */,
+				553F6C962AFC2A0A00FDDAB6 /* TextInput.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				553F6C822AFC038600FDDAB6 /* Preview Assets.xcassets in Resources */,
+				553F6C922AFC140200FDDAB6 /* SFProMedium.otf in Resources */,
+				553F6C8D2AFC0E4D00FDDAB6 /* SFProRegular.otf in Resources */,
 				553F6C7F2AFC038600FDDAB6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553F6C902AFC113700FDDAB6 /* Fonts.swift in Sources */,
 				553F6C7D2AFC038400FDDAB6 /* ContentView.swift in Sources */,
+				553F6C8A2AFC06B700FDDAB6 /* Colors.swift in Sources */,
 				553F6C7B2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift in Sources */,
+				553F6C952AFC20CE00FDDAB6 /* Line.swift in Sources */,
+				553F6C972AFC2A0A00FDDAB6 /* TextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +325,7 @@
 				DEVELOPMENT_TEAM = XKXAY3E6D2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIPersonForm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +355,7 @@
 				DEVELOPMENT_TEAM = XKXAY3E6D2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIPersonForm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
