@@ -7,11 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State var nameText: String = ""
-    @State var idnpText: String = ""
-    @State var adressText: String = ""
-    @State var amountText: String = ""
+struct PersonForm: View {
+    @StateObject private var viewModel = PersonFormViewModel()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -52,31 +49,49 @@ struct ContentView: View {
                     
                     TextInput(
                         topText: "Nume Prenume:",
-                        fieldText: $nameText,
-                        keyboardType: .namePhonePad
+                        fieldText: $viewModel.nameText,
+                        keyboardType: .namePhonePad,
+                        isValidInput: $viewModel.isValidName
                     )
                     .padding(.horizontal, 12)
                     
                     TextInput(
                         topText: "IDNP:",
-                        fieldText: $idnpText,
-                        keyboardType: .decimalPad
+                        fieldText: $viewModel.idnpText,
+                        keyboardType: .decimalPad,
+                        isValidInput: $viewModel.isValidIdnp
                     )
                     .padding(.horizontal, 12)
                     
+                
+                    RadioButtonGroup(items: viewModel.personTypes.map({$0.rawValue})) { index in
+                        viewModel.selectedPersonType = viewModel.personTypes[index]
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Colors.lGray)
+                            .strokeBorder(viewModel.isValidPersonType ? Colors.lGray : .red, lineWidth: 1)
+                    )
+                    .padding(.horizontal, 12)
+                    .padding(.bottom, 24)
                     
+
                     TextInput(
                         topText: "Adresa imobilului (în chirie):",
-                        fieldText: $adressText,
-                        keyboardType: .alphabet
+                        fieldText: $viewModel.adressText,
+                        keyboardType: .alphabet,
+                        isValidInput: $viewModel.isValidAdress
                     )
                     .padding(.horizontal, 12)
-                    
+                  
                     TextInput(
                         topText: "Suma impozitului:",
-                        fieldText: $amountText,
-                        keyboardType: .decimalPad
-                    )
+                        fieldText: $viewModel.amountText,
+                        keyboardType: .decimalPad,
+                        isValidInput: $viewModel.isValidAmount
+                    ) {
+                        AnyView(Text("MDL"))
+                    }
                     .padding(.horizontal, 12)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -84,27 +99,40 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 
                 Button {
-                    print("did press")
+                    viewModel.onPressPayNow()
                 } label: {
                     HStack {
                         Text("Plătește acum")
                             .foregroundColor(.white)
                             .font(Font.sfPro(type: .regular, size: 18))
                         Image(systemName: "arrow.forward")
-                            .tint(.white)
+                            .foregroundColor(.white)
                     }
                     .padding(.horizontal, 26)
                     .padding(.vertical, 20)
-                    .background(Colors.humanBlack)
+                    .background(viewModel.isValidAllData ? Colors.humanBlack : Colors.humanBlack.opacity(0.5))
                     .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                }.padding(.top, 24)
+                }
+                .disabled(!viewModel.isValidAllData)
+                .padding(.top, 24)
+                .alert("Successfull fill data", isPresented: $viewModel.showSuccessfullAlert) {
+                    Button("OK", role: .cancel) { }
+                }
 
+            }
+            .onTapGesture {
+                hideKeyboard()
             }
         }
         .background(Colors.paymentSecondary)
     }
+    
+    private func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
 }
 
 #Preview {
-    ContentView()
+    PersonForm()
 }

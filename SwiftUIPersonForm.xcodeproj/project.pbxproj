@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553CEB332AFCCF4700E900E0 /* RadioGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CEB322AFCCF4700E900E0 /* RadioGroup.swift */; };
+		553CEB352AFCE79500E900E0 /* PersonFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CEB342AFCE79500E900E0 /* PersonFormViewModel.swift */; };
 		553F6C7B2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C7A2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift */; };
-		553F6C7D2AFC038400FDDAB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C7C2AFC038400FDDAB6 /* ContentView.swift */; };
+		553F6C7D2AFC038400FDDAB6 /* PersonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C7C2AFC038400FDDAB6 /* PersonForm.swift */; };
 		553F6C7F2AFC038600FDDAB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */; };
 		553F6C822AFC038600FDDAB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553F6C812AFC038600FDDAB6 /* Preview Assets.xcassets */; };
 		553F6C8A2AFC06B700FDDAB6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F6C892AFC06B700FDDAB6 /* Colors.swift */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		553CEB322AFCCF4700E900E0 /* RadioGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroup.swift; sourceTree = "<group>"; };
+		553CEB342AFCE79500E900E0 /* PersonFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormViewModel.swift; sourceTree = "<group>"; };
 		553F6C772AFC038400FDDAB6 /* SwiftUIPersonForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPersonForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553F6C7A2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPersonFormApp.swift; sourceTree = "<group>"; };
-		553F6C7C2AFC038400FDDAB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		553F6C7C2AFC038400FDDAB6 /* PersonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonForm.swift; sourceTree = "<group>"; };
 		553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553F6C812AFC038600FDDAB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		553F6C892AFC06B700FDDAB6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -69,7 +73,8 @@
 				553F6C8B2AFC0E3800FDDAB6 /* Font */,
 				553F6C882AFC06A100FDDAB6 /* Resources */,
 				553F6C7A2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift */,
-				553F6C7C2AFC038400FDDAB6 /* ContentView.swift */,
+				553F6C7C2AFC038400FDDAB6 /* PersonForm.swift */,
+				553CEB342AFCE79500E900E0 /* PersonFormViewModel.swift */,
 				553F6C7E2AFC038600FDDAB6 /* Assets.xcassets */,
 				553F6C802AFC038600FDDAB6 /* Preview Content */,
 			);
@@ -107,6 +112,7 @@
 			children = (
 				553F6C942AFC20CE00FDDAB6 /* Line.swift */,
 				553F6C962AFC2A0A00FDDAB6 /* TextInput.swift */,
+				553CEB322AFCCF4700E900E0 /* RadioGroup.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,9 +190,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				553F6C902AFC113700FDDAB6 /* Fonts.swift in Sources */,
-				553F6C7D2AFC038400FDDAB6 /* ContentView.swift in Sources */,
+				553F6C7D2AFC038400FDDAB6 /* PersonForm.swift in Sources */,
 				553F6C8A2AFC06B700FDDAB6 /* Colors.swift in Sources */,
+				553CEB352AFCE79500E900E0 /* PersonFormViewModel.swift in Sources */,
 				553F6C7B2AFC038400FDDAB6 /* SwiftUIPersonFormApp.swift in Sources */,
+				553CEB332AFCCF4700E900E0 /* RadioGroup.swift in Sources */,
 				553F6C952AFC20CE00FDDAB6 /* Line.swift in Sources */,
 				553F6C972AFC2A0A00FDDAB6 /* TextInput.swift in Sources */,
 			);

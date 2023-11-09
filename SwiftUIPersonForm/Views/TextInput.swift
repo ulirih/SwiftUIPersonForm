@@ -14,16 +14,25 @@ struct TextInput: View {
     var rightContent: (() -> AnyView)? = nil
     
     @Binding var fieldText: String
+    @Binding var isValidInput: Bool
     
-    init(topText: String, fieldText: Binding<String>, keyboardType: UIKeyboardType) {
+    init(topText: String, fieldText: Binding<String>, keyboardType: UIKeyboardType, isValidInput: Binding<Bool>) {
         self.topText = topText
         self._fieldText = fieldText
+        self._isValidInput = isValidInput
         self.keyboardType = keyboardType
     }
     
-    init(topText: String, fieldText: Binding<String>, keyboardType: UIKeyboardType, @ViewBuilder rightContent: @escaping () -> AnyView) {
+    init(
+        topText: String,
+        fieldText: Binding<String>,
+        keyboardType: UIKeyboardType,
+        isValidInput: Binding<Bool>,
+        @ViewBuilder rightContent: @escaping () -> AnyView
+    ) {
         self.topText = topText
         self._fieldText = fieldText
+        self._isValidInput = isValidInput
         self.rightContent = rightContent
         self.keyboardType = keyboardType
     }
@@ -36,18 +45,18 @@ struct TextInput: View {
             
             HStack {
                 TextField("", text: $fieldText)
-                    .autocorrectionDisabled()
-                    .keyboardType(/*@START_MENU_TOKEN@*/.default/*@END_MENU_TOKEN@*/)
-                    .font(Font.sfPro(type: .medium, size: 18))
-                    .foregroundColor(Colors.humanBlack)
+                .autocorrectionDisabled()
+                .keyboardType(keyboardType)
+                .font(Font.sfPro(type: .medium, size: 18))
+                .foregroundColor(Colors.humanBlack)
                 AnyView(rightContent?())
             }
             .padding(.horizontal, 24)
-
             .frame(height: 64)
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .fill(Colors.lGray)
+                    .strokeBorder(isValidInput ? Colors.lGray : .red, lineWidth: 1)
             )
         }.padding(.bottom, 24)
     }

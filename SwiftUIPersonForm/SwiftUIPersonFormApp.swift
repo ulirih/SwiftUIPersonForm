@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUIPersonFormApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PersonForm()
         }
     }
 }
