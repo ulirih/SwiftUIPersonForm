@@ -22,10 +22,12 @@ struct RadioButtonGroup: View {
                     text: self.items[index],
                     isSelected: selectedIndex == index,
                     callback: self.radioGroupCallback
-                ).padding(.horizontal, 24)
+                )
+                .padding(.horizontal, 24)
+                .padding(.bottom, 24)
             }
         }
-        .padding(.vertical, 12)
+        .padding(.top, 24)
     }
 
     private func radioGroupCallback(index: Int) {
@@ -55,10 +57,12 @@ struct RadioButton: View {
             HStack(alignment: .center, spacing: 10) {
                 Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                     .resizable()
-                    .frame(width: 20, height: 20)
-                    .tint(Colors.humanBlack)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(Colors.humanBlack)
+                    .padding(.trailing, 12)
                 Text(text)
-                    .font(Font.sfPro())
+                    .font(Font.sfPro(type: .regular, size: 18))
+                    .foregroundColor(Colors.humanBlack)
                 Spacer()
             }.foregroundColor(Colors.humanBlack)
         }

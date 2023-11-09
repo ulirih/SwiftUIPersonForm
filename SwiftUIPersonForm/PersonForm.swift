@@ -21,37 +21,16 @@ struct PersonForm: View {
                     .padding(24)
                 
                 VStack {
-                    HStack(alignment: .top) {
-                        Image("emblem")
-                            .resizable()
-                            .frame(width: 48, height: 48)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 48/2)
-                                    .stroke(.gray, lineWidth: 1)
-                            )
-                        VStack(alignment: .leading) {
-                            Text("Impozitul pe venit pentru predarea în posesie și/sau folosință a imobilului".uppercased())
-                                .font(Font.sfPro(type: .medium, size: 18))
-                                .tracking(3)
-                                .foregroundColor(Colors.humanBlack)
-                            Text("Serviciul Fiscal de Stat")
-                                .font(Font.sfPro(type: .regular, size: 14))
-                                .padding(.top, 6)
-                        }
-                        .padding(.leading, 12)
-                    }
-                    .padding(EdgeInsets(top: 24, leading: 24, bottom: 12, trailing: 24))
+                    headerView
                     
-                    Line()
-                        .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, dash: [2, 8]))
-                        .foregroundStyle(Colors.paymentMiddle)
-                        .padding(.bottom, 12)
+                    dottedLine
                     
                     TextInput(
                         topText: "Nume Prenume:",
                         fieldText: $viewModel.nameText,
-                        keyboardType: .namePhonePad,
-                        isValidInput: $viewModel.isValidName
+                        keyboardType: .alphabet,
+                        isValidInput: $viewModel.isValidName,
+                        rightContent: { AnyView(profileImage) }
                     )
                     .padding(.horizontal, 12)
                     
@@ -59,7 +38,16 @@ struct PersonForm: View {
                         topText: "IDNP:",
                         fieldText: $viewModel.idnpText,
                         keyboardType: .decimalPad,
-                        isValidInput: $viewModel.isValidIdnp
+                        isValidInput: $viewModel.isValidIdnp,
+                        rightContent: {
+                            AnyView(
+                                Button {
+                                    viewModel.fillIdnp()
+                                } label: {
+                                    profileImage
+                                }
+                            )
+                        }
                     )
                     .padding(.horizontal, 12)
                     
@@ -68,7 +56,7 @@ struct PersonForm: View {
                         viewModel.selectedPersonType = viewModel.personTypes[index]
                     }
                     .background(
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 8)
                             .fill(Colors.lGray)
                             .strokeBorder(viewModel.isValidPersonType ? Colors.lGray : .red, lineWidth: 1)
                     )
@@ -113,8 +101,8 @@ struct PersonForm: View {
                     .background(viewModel.isValidAllData ? Colors.humanBlack : Colors.humanBlack.opacity(0.5))
                     .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 }
-                .disabled(!viewModel.isValidAllData)
                 .padding(.top, 24)
+                .disabled(!viewModel.isValidAllData)
                 .alert("Successfull fill data", isPresented: $viewModel.showSuccessfullAlert) {
                     Button("OK", role: .cancel) { }
                 }
@@ -130,6 +118,44 @@ struct PersonForm: View {
     private func hideKeyboard() {
         let resign = #selector(UIResponder.resignFirstResponder)
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}
+
+private extension PersonForm {
+    var headerView: some View {
+        HStack(alignment: .top) {
+            Image("emblem")
+                .resizable()
+                .frame(width: 48, height: 48)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 48/2)
+                        .stroke(.gray, lineWidth: 1)
+                )
+            VStack(alignment: .leading) {
+                Text("Impozitul pe venit pentru predarea în posesie și/sau folosință a imobilului".uppercased())
+                    .font(Font.sfPro(type: .medium, size: 18))
+                    .tracking(3)
+                    .foregroundColor(Colors.humanBlack)
+                Text("Serviciul Fiscal de Stat")
+                    .font(Font.sfPro(type: .regular, size: 14))
+                    .padding(.top, 6)
+            }
+            .padding(.leading, 12)
+        }
+        .padding(EdgeInsets(top: 24, leading: 24, bottom: 12, trailing: 24))
+    }
+    
+    var dottedLine: some View {
+        Line()
+            .stroke(style: StrokeStyle(lineWidth: 4, lineCap: .round, dash: [2, 8]))
+            .foregroundStyle(Colors.paymentMiddle)
+            .padding(.bottom, 12)
+    }
+    
+    var profileImage: some View {
+        Image("profileLogo")
+            .resizable()
+            .frame(width: 28, height: 28)
     }
 }
 

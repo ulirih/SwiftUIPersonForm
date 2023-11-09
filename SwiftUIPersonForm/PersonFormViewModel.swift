@@ -8,8 +8,8 @@
 import Foundation
 
 enum PersonType: String {
-    case phisical = "Fizica"
-    case juridical = "Juridica"
+    case phisical = "Persoană fizică"
+    case juridical = "Persoană juridică"
 }
 
 final class PersonFormViewModel: ObservableObject {
@@ -25,7 +25,8 @@ final class PersonFormViewModel: ObservableObject {
     
     @Published var nameText: String = "" {
         didSet {
-            if nameText.isEmpty || nameText.range(of: "^[a-zA-Z]*$", options: .regularExpression) == nil {
+            let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-")
+            if nameText.isEmpty || nameText.rangeOfCharacter(from: characterset.inverted) != nil {
                 isValidName = false
                 return
             }
